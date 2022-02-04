@@ -18,11 +18,11 @@
 
   <div class="grid-container">
     <nav class="menu" data-menu="smooth">
-      <ul>
+      <button data-menu="button" aria-expanded="false" aria-controls="menu">Menu</button>
+      <ul data-menu="list" id="menu">
         <li><a href="#animais">Animais</a></li>
         <li data-dropdown>
           <a href="sobre.html">Sobre</a>
-
           <ul class="dropdown-menu">
             <li><a href="./">Empresa</a></li>
             <li><a href="./">Equipe</a></li>
@@ -132,7 +132,6 @@
         <dd>Também apresentam como particularidade suas pupilas ovais, semelhantes às pupilas verticais dos felídeos.</dd>
       </dl>
     </section>
-
     <section class="grid-section contato" data-anime="scroll" id="contato">
       <h1 class="titulo">Contato</h1>
       <div class="mapa" data-tooltip aria-label="Endereço próximo ao estacionamento">
