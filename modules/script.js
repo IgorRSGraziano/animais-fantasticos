@@ -1,13 +1,15 @@
-import smoothScroll from './smoothScroll.js';
-import animationScroll from './animationScroll.js'
-import accordion from './accordion.js'
-import tabMenu from './tabMenu.js'
+import initSmoothScroll from './smoothScroll.js';
+import initAnimationScroll from './animationScroll.js'
+import initAccordion from './accordion.js'
+import initTabMenu from './tabMenu.js'
 import initModal from './modal.js'
 import initToolTip from './toolTip.js'
+import initDropdownMenu from './dropdownMenu.js'
 
-tabMenu()
-animationScroll()
-smoothScroll()
-accordion()
+initTabMenu()
+initAnimationScroll()
+initSmoothScroll()
+initAccordion()
 initModal()
 initToolTip()
+initDropdownMenu()
