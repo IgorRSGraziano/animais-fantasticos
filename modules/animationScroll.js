@@ -9,6 +9,8 @@ export default function initAnimationScroll() {
                 const sectionTop = section.getBoundingClientRect().top
                 if (sectionTop < windowHeight) {
                     section.classList.add('ativo')
+                } else if (section.classList.contains('ativo')) {
+                    section.classList.remove('ativo')
                 }
             })
         }
