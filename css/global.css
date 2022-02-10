@@ -292,3 +292,25 @@ body, h1, h2, ul, li, p, dd, dt, dl {
   .js [data-tab='menu'] section.ativo.show-right { 
     animation: slideRight 0.3s forwards;
   }
+
+  [data-week]::after {
+    display: inline-block;
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: #E54;
+    border-radius: 50%;
+    margin-left: 4px;
+    border: 2px solid black;
+  }
+
+  [data-week].opening::after {
+    display: inline-block;
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: #3F4;
+    border-radius: 50%;
+    margin-left: 4px;
+    border: 2px solid black;
+  }
