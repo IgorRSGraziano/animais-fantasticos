@@ -6,6 +6,15 @@ export default function initFetchAnimals() {
         const animalsJSON = await animalsResponse.json()
         const numberGrid = document.querySelector('.numeros-grid')
 
+        function createAnimal(animal) {
+            const div = document.createElement('div')
+            div.classList.add('numero-animal')
+
+            div.innerHTML = `<h3>${animal.especie}</h3><span data-numero>${animal.total}</span>`
+
+            return div
+        }
+
         animalsJSON.forEach(animal => {
             const divAnimal = createAnimal(animal)
 
@@ -15,13 +24,5 @@ export default function initFetchAnimals() {
         initNumberAnimation()
     }
 
-    function createAnimal(animal) {
-        const div = document.createElement('div')
-        div.classList.add('numero-animal')
-
-        div.innerHTML = `<h3>${animal.especie}</h3><span data-numero>${animal.total}</span>`
-
-        return div
-    }
     fetchAnimals('./animaisapi.json')
 }

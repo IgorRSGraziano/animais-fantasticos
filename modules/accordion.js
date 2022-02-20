@@ -1,4 +1,4 @@
-//Faz o effeito Accordion, que esconde as resposta das perguntas frequentes, e quando a pessoa clica expande.
+// Faz o effeito Accordion, que esconde as resposta das perguntas frequentes, e quando a pessoa clica expande.
 export default function initAccordion() {
     const accordionList = document.querySelectorAll('[data-effect="accordion"] dt')
 

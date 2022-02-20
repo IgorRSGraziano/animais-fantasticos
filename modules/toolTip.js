@@ -12,6 +12,14 @@ export default function initToolTip() {
         return toolTipBox
     }
 
+    const onMouseMove = {
+        handleEvent(event) {
+            this.toolTipBox.style.top = `${event.pageY + 20}px`;
+            this.toolTipBox.style.left = `${event.pageX + 20}px`;
+
+        }
+    }
+
     const onMouseLeave = {
         handleEvent() {
             this.toolTipBox.remove();
@@ -21,15 +29,8 @@ export default function initToolTip() {
         }
     }
 
-    const onMouseMove = {
-        handleEvent(event) {
-            this.toolTipBox.style.top = event.pageY + 20 + 'px';
-            this.toolTipBox.style.left = event.pageX + 20 + 'px';
 
-        }
-    }
-
-    function onMouseOver(event) {
+    function onMouseOver() {
         const toolTipBox = toolTipBoxCreate(this)
 
         onMouseMove.toolTipBox = toolTipBox
