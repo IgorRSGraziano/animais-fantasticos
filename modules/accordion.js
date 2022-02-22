@@ -1,13 +1,25 @@
 // Faz o effeito Accordion, que esconde as resposta das perguntas frequentes, e quando a pessoa clica expande.
-export default function initAccordion() {
-    const accordionList = document.querySelectorAll('[data-effect="accordion"] dt')
-
-    function activeAccordion() {
-        this.classList.toggle('ativo')
-        this.nextElementSibling.classList.toggle('ativo')
+export default class Accordion {
+    constructor(list) {
+        this.accordionList = document.querySelectorAll(list)
+        this.activeClass = 'ativo'
     }
 
-    accordionList.forEach((item) => {
-        item.addEventListener('click', activeAccordion)
-    })
+    toggleAccordion(item) {
+        item.classList.toggle(this.activeClass)
+        item.nextElementSibling.classList.toggle(this.activeClass)
+    }
+
+    addAccordionEvent() {
+        this.accordionList.forEach((item) => {
+            item.addEventListener('click', () => this.toggleAccordion(item))
+        })
+    }
+
+    init() {
+        if (this.accordionList.length) {
+            this.toggleAccordion(this.accordionList[0])
+            this.addAccordionEvent()
+        }
+    }
 }
