@@ -1,23 +1,31 @@
-//Realiza a navegação pelo itens clicando nas fotos, e mostrando o conteúdo de acordo
-export default function initTabMenu() {
-    const tabMenu = document.querySelectorAll('[data-animals="list"] li')
-    const tabContent = document.querySelectorAll('[data-tab="menu"] section')
-    tabContent[0].classList.add('ativo')
+// Realiza a navegação pelo itens clicando nas fotos, e mostrando o conteúdo de acordo
+export default class TabMenu {
+    constructor(menu, content) {
+        this.tabMenu = document.querySelectorAll(menu)
+        this.tabContent = document.querySelectorAll(content)
 
-    //Verifica se os itens existem para realizar a manipulação
-    if (!!tabMenu.length && !!tabContent.length) {
-        function activeTab(index) {
-            tabContent.forEach((section) => {
-                section.classList.remove('ativo')
-            })
-            const data = tabContent[index].dataset.anime
-            tabContent[index].classList.add('ativo', data)
-        }
+        this.activeClass = 'ativo'
+    }
 
-        tabMenu.forEach((itemMenu, index) => {
-            itemMenu.addEventListener('click', () => {
-                activeTab(index)
-            })
+    activeTab(index) {
+        this.tabContent.forEach((section) => {
+            section.classList.remove(this.activeClass)
+        })
+        const data = this.tabContent[index].dataset.anime
+        this.tabContent[index].classList.add(this.activeClass, data)
+    }
+
+    addTabMenuEvent() {
+        this.tabMenu.forEach((menuItem, index) => {
+            menuItem.addEventListener('click', () => this.activeTab(index))
         })
     }
+
+    init() {
+        if (this.tabContent && this.tabMenu) {
+            this.activeTab(0)
+            this.addTabMenuEvent()
+        }
+    }
+
 }
