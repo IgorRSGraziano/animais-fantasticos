@@ -1,18 +1,34 @@
-export default function initModal() {
-    const btnOpen = document.querySelector('[data-modal="open"]')
-    const btnClose = document.querySelector('[data-modal="close"]')
-    const btnContainerModal = document.querySelector('[data-modal="container"]')
+export default class initModal {
+    constructor(btnOpen, btnClose, modalContainer) {
+        this.btnOpen = document.querySelector(btnOpen)
+        this.btnClose = document.querySelector(btnClose)
+        this.modalContainer = document.querySelector(modalContainer)
 
-    function modalToggle(event) {
+        this.eventToggleModal = this.eventToggleModal.bind(this)
+        this.clickOutsideOfModal = this.clickOutsideOfModal.bind(this)
+
+    }
+
+    modalToggle() {
+        this.modalContainer.classList.toggle('ativo');
+    }
+
+    eventToggleModal(event) {
         event.preventDefault()
-        btnContainerModal.classList.toggle('ativo');
-    }
-    function clickOutsideOfModal(event) {
-        event.target === this ? modalToggle(event) : null
+        this.modalToggle()
     }
 
+    clickOutsideOfModal(event) {
+        event.target === this.modalContainer ? this.modalToggle(event) : null
+    }
 
-    btnOpen.addEventListener('click', modalToggle)
-    btnClose.addEventListener('click', modalToggle)
-    btnContainerModal.addEventListener('click', clickOutsideOfModal)
+    addModalEvent() {
+        this.btnOpen.addEventListener('click', this.eventToggleModal)
+        this.btnClose.addEventListener('click', this.eventToggleModal)
+        this.modalContainer.addEventListener('click', this.clickOutsideOfModal)
+    }
+
+    init() {
+        this.addModalEvent()
+    }
 } 
