@@ -1,4 +1,4 @@
-import initNumberAnimation from './numberAnimation.js'
+import NumberAnimation from './numberAnimation.js'
 
 export default function initFetchAnimals() {
     async function fetchAnimals(url) {
@@ -21,7 +21,9 @@ export default function initFetchAnimals() {
             numberGrid.appendChild(divAnimal)
         })
 
-        initNumberAnimation()
+        const numberAnimation = new NumberAnimation('[data-numero]', '.numeros', 'ativo')
+        numberAnimation.init()
+
     }
 
     fetchAnimals('./animaisapi.json')
