@@ -1,10 +1,12 @@
+import debounce from "./debounce.js"
+
 // Gera a animação de itens "aparecendo" no site no decorrer que a pessoa vai descendo a tela
 export default class initAnimationScroll {
     constructor(sections) {
         this.sections = document.querySelectorAll(sections)
         this.windowHeight = window.innerHeight * 0.6
 
-        this.checkDistance = this.checkDistance.bind(this)
+        this.checkDistance = debounce(this.checkDistance.bind(this), 50)
     }
 
     getDistance() {
