@@ -5,7 +5,7 @@ import TabMenu from './tabMenu.js'
 import Modal from './modal.js'
 import Tooltip from './toolTip.js'
 import DropdownMenu from './dropdownMenu.js'
-import initMenuMobile from './menuMobile.js'
+import MenuMobile from './menuMobile.js'
 import initOpeningHours from './openingHours.js'
 import initFetchAnimals from './fetchAnimals.js'
 import initFetchBitcoin from './fetchBitcoin.js'
@@ -31,7 +31,9 @@ animationScroll.init()
 const dropdownMenu = new DropdownMenu('[data-dropdown]')
 dropdownMenu.init()
 
-initMenuMobile()
+const menuMobile = new MenuMobile('[data-menu="button"]', '[data-menu="list"]')
+menuMobile.init()
+
 initOpeningHours()
 initFetchAnimals()
 initFetchBitcoin()
